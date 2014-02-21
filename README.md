@@ -10,6 +10,14 @@ Couch2code is a site that registered developers can post practice exercises/chal
 * AngularJS
 * Firebase
 
+## Dev Setup
+
+```
+npm install browserify -g
+npm install
+npm run watch
+```
+
 ## Supported Registration Methods
 
 * Email, Password

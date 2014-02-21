@@ -1,0 +1,19 @@
+{
+  "name": "couch2code",
+  "version": "0.0.0",
+  "homepage": "https://github.com/couch2code/couch2code.com",
+  "authors": [
+    "Tom Wilson <tom@jackhq.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1"
+  }
+}
