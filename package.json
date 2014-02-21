@@ -1,0 +1,19 @@
+{
+  "name": "couch2code",
+  "version": "0.0.1",
+  "scripts": {
+    "install": "napa"
+  },
+  "devDependencies": {
+    "napa": "~0.4.0",
+    "brfs": "~0.2.1",
+    "watchify": "~0.6.1"
+  },
+  "napa": {
+    "angular": "angular/bower-angular",
+    "ui-router": "angular-ui/ui-router"
+  },
+  "dependencies": {
+    "underscore": "~1.6.0"
+  }
+}
