@@ -2,7 +2,10 @@
   "name": "couch2code",
   "version": "0.0.1",
   "scripts": {
-    "install": "napa"
+    "install": "napa",
+    "build": "browserify -t brfs app/app.js -o public/bundle.js",
+    "start": "cd public && w3",
+    "watch": "watchify -t brfs app/app.js -o public/bundle.js"
   },
   "devDependencies": {
     "napa": "~0.4.0",
@@ -11,7 +14,9 @@
   },
   "napa": {
     "angular": "angular/bower-angular",
-    "ui-router": "angular-ui/ui-router"
+    "ui-router": "angular-ui/ui-router",
+    "firebase": "firebase/firebase-bower",
+    "angularfire": "firebase/angularFire"
   },
   "dependencies": {
     "underscore": "~1.6.0"

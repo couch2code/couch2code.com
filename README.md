@@ -13,9 +13,12 @@ Couch2code is a site that registered developers can post practice exercises/chal
 ## Dev Setup
 
 ```
+npm install w3 -g
 npm install browserify -g
 npm install
 npm run watch
+# new window
+npm start
 ```
 
 ## Supported Registration Methods

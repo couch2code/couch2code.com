@@ -1,0 +1,26 @@
+<header class="jumbotron">
+  <div class="container">
+    <h1>Couch2Code</h1>
+    <p>To get better at programming you must get off the couch and start writing code! Don't know where to start, we are here to help!</p>
+  </div>    
+</header>
+<div class="container">
+  <div class="alert alert-success" ng-show="completed">
+    <h4>Thank you for registering for our mailing list, we will keep you updated</h4>
+  </div>
+  <h2>Interested in finding out more?</h2>
+  <p>Enter your email, and we will let you know when we are ready!</p>
+  <div style="padding-top: 50px;" ng-hide="completed">
+    <center>
+      <input class="input-lg" type="email" ng-model="email">
+      <br />
+      <br />
+      <button class="btn btn-large btn-primary" ng-click="addEmail(email)">Submit</button>
+    </center>
+  </div>
+</div>
+<footer>
+  <div class="container">
+    <p>All Rights Reserved.</p>
+  </div>
+</footer>
