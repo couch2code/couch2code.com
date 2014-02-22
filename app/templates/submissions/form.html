@@ -1,0 +1,20 @@
+<div class="container">
+  <h2>{{ype}} Submission</h2>
+  <form novalidate>
+    <div class="form-group">
+      <label>Source (link)</label>
+      <input class="form-control" ng-model="submission.link">
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea class="form-control" ng-model="submission.body"></textarea>
+    </div>
+    <div class="form-group">
+      <label>Language</label>
+      <input class="form-control" ng-model="submission.lang">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary">Post</button>
+    </div>
+  </form>
+</div>
