@@ -1,0 +1,19 @@
+<form name="form" class="col-lg-4 col-lg-offset-4" novalidate ng-submit="login()" >
+  <h2><center>Login</center></h2>
+  <div class="form-group">
+    <input class="input-lg form-control" placeholder="email" ng-model="user.email">
+  </div>
+  <div class="form-group">
+    <input class="input-lg form-control" placeholder="password" ng-model="user.password">
+  </div>
+  <div class="form-group">
+    <label class="label-control">
+      Remember Me
+      <input type="checkbox" ng-model="user.rememberMe">
+    </label>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-warning">Cancel</button>
+    <button class="btn btn-primary pull-right">Login</button>
+  </div>
+</form>

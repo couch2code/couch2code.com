@@ -8,15 +8,30 @@
   <div class="alert alert-success" ng-show="completed">
     <h4>Thank you for registering for our mailing list, we will keep you updated</h4>
   </div>
-  <h2>Interested in finding out more?</h2>
-  <p>Enter your email, and we will let you know when we are ready!</p>
+  <center>
+  <h2>Get Registered</h2>
+  <p>or <a ui-sref="login">Login</a>
+</center>
   <div style="padding-top: 50px;" ng-hide="completed">
-    <center>
-      <input class="input-lg" type="email" ng-model="email">
-      <br />
-      <br />
-      <button class="btn btn-large btn-primary" ng-click="addEmail(email)">Submit</button>
-    </center>
+    <form class="col-lg-4 col-lg-offset-4" name="form" novalidate ng-submit="register('email')">
+      <div class="form-group">
+        <input class="input-lg form-control" type="email" placeholder="email" ng-model="user.email">
+      </div>
+      <div class="form-group">
+        <input class="input-lg form-control" type="password" placeholder="password" ng-model="user.password">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-info" ng-click="register('github')">
+          Github
+        </button>
+        <button class="btn btn-info" ng-click="register('twitter')">
+          Twitter
+        </button>
+        <button class="btn btn-large btn-primary pull-right">
+          Register
+        </button>
+      </div>
+    </form>
   </div>
 </div>
 <footer>
