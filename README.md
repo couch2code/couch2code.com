@@ -29,19 +29,3 @@ npm start
 * Facebook
 * Persona
 
-## Ideas for workflow
-
-- Index View - A trending list of popular challenges
-- Registration
-- Login
-- Create a New Challenge
-- Edit a New Challenge
-- View a Challenge
-- Post a Your Challenge Result Link
-- Rate/Comment on a Challenge Result
-- Profile
-- Member Ranking Algorithm (Based on Challenges Contributed and Challenge Results Submitted)
-
-- Forum???
-- IRC??
-
