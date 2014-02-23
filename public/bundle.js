@@ -1,6 +1,4 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-
-},{}],2:[function(require,module,exports){
 require('angular/angular');
 require('ui-router/release/angular-ui-router');
 require('firebase/firebase');
@@ -11,32 +9,32 @@ angular.module('couch2code', ['ui.router','firebase'])
   .config(require('./states'))
   .run(require('./run'));
 
-},{"./run":12,"./states":13,"angular/angular":14,"angularfire/angularfire":15,"firebase/firebase":16,"simpleLogin/firebase-simple-login":17,"ui-router/release/angular-ui-router":18}],3:[function(require,module,exports){
+},{"./run":11,"./states":12,"angular/angular":13,"angularfire/angularfire":14,"firebase/firebase":15,"simpleLogin/firebase-simple-login":16,"ui-router/release/angular-ui-router":17}],2:[function(require,module,exports){
 module.exports = function($scope) {
 
 };
 
+},{}],3:[function(require,module,exports){
+module.exports=require(2)
 },{}],4:[function(require,module,exports){
-module.exports=require(3)
-},{}],5:[function(require,module,exports){
 module.exports = function($scope, $firebase, $firebaseSimpleLogin) {
   var loginRef = new Firebase('https://couch2code.firebaseio.com');
   $scope.loginObj = $firebaseSimpleLogin(loginRef);
 };
 
+},{}],5:[function(require,module,exports){
+module.exports=require(2)
 },{}],6:[function(require,module,exports){
-module.exports=require(3)
+module.exports=require(2)
 },{}],7:[function(require,module,exports){
-module.exports=require(3)
+
 },{}],8:[function(require,module,exports){
-module.exports=require(1)
+module.exports=require(2)
 },{}],9:[function(require,module,exports){
-module.exports=require(3)
+module.exports=require(2)
 },{}],10:[function(require,module,exports){
-module.exports=require(3)
+module.exports=require(2)
 },{}],11:[function(require,module,exports){
-module.exports=require(3)
-},{}],12:[function(require,module,exports){
 module.exports = function($rootScope, $firebaseSimpleLogin) {
   $rootScope.$on('$firebaseSimpleLogin:login', function(e, user) {
     // when logged in sucdess
@@ -47,7 +45,7 @@ module.exports = function($rootScope, $firebaseSimpleLogin) {
 
 };
 
-},{}],13:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 var fs = require('fs');
 
 module.exports = function($stateProvider, $urlRouterProvider) {
@@ -56,7 +54,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
     .state('main', {
       url: '/',
       controller: require('./controllers/main'),
-      template: "<header class=\"jumbotron\">\n  <div class=\"container\">\n    <h1>Couch2Code</h1>\n    <p>To get better at programming you must get off the couch and start writing code! Don't know where to start, we are here to help!</p>\n  </div>    \n</header>\n<div class=\"container\">\n  <div class=\"alert alert-success\" ng-show=\"completed\">\n    <h4>Thank you for registering for our mailing list, we will keep you updated</h4>\n  </div>\n  <center>\n  <h2>Get Registered</h2>\n  <p>or <a ui-sref=\"login\">Login</a>\n</center>\n  <div style=\"padding-top: 50px;\" ng-hide=\"completed\">\n    <form class=\"col-lg-4 col-lg-offset-4\" name=\"form\" novalidate ng-submit=\"register('email')\">\n      <div class=\"form-group\">\n        <input class=\"input-lg form-control\" type=\"email\" placeholder=\"email\" ng-model=\"user.email\">\n      </div>\n      <div class=\"form-group\">\n        <input class=\"input-lg form-control\" type=\"password\" placeholder=\"password\" ng-model=\"user.password\">\n      </div>\n      <div class=\"form-group\">\n        <button class=\"btn btn-info\" ng-click=\"loginObj.$login('github')\">\n          Github\n        </button>\n\t<button class=\"btn btn-info\" ng-click=\"loginObj.$login('twitter')\">\n          Twitter\n        </button>\n        <button class=\"btn btn-large btn-primary pull-right\">\n          Register\n        </button>\n      </div>\n    </form>\n  </div>\n</div>\n<footer>\n  <div class=\"container\">\n    <p>All Rights Reserved.</p>\n  </div>\n</footer>\n"
+      template: "<header class=\"jumbotron\">\n  <div class=\"container\">\n    <h1>Couch2Code</h1>\n    <p>To get better at programming you must get off the couch and start writing code! Don't know where to start, we are here to help!</p>\n  </div>    \n</header>\n<div class=\"container\">\n  <div class=\"alert alert-success\" ng-show=\"completed\">\n    <h4>Thank you for registering for our mailing list, we will keep you updated</h4>\n  </div>\n  <center>\n  <h2>Get Registered</h2>\n  <p>or <a ui-sref=\"login\">Login</a>\n</center>\n  <div style=\"padding-top: 50px;\" ng-hide=\"completed\">\n    <form class=\"col-lg-4 col-lg-offset-4\" name=\"form\" novalidate ng-submit=\"register('email')\">\n      <div class=\"form-group\">\n        <input class=\"input-lg form-control\" type=\"email\" placeholder=\"email\" ng-model=\"user.email\">\n      </div>\n      <div class=\"form-group\">\n        <input class=\"input-lg form-control\" type=\"password\" placeholder=\"password\" ng-model=\"user.password\">\n      </div>\n      <div class=\"form-group\">\n        <button class=\"btn btn-info\" ng-click=\"loginObj.$login('github')\">\n          Github\n        </button>\n        <button class=\"btn btn-info\" ng-click=\"loginObj.$login('twitter')\">\n          Twitter\n        </button>\n        <button class=\"btn btn-info\" ng-click=\"loginObj.$login('facebook')\">\n          Facebook\n        </button>\n        <button class=\"btn btn-large btn-primary pull-right\">\n          Register\n        </button>\n      </div>\n    </form>\n  </div>\n</div>\n<footer>\n  <div class=\"container\">\n    <p>All Rights Reserved.</p>\n  </div>\n</footer>\n"
     })
     .state('new-challenge', {
       url: '/challenges/new',
@@ -101,9 +99,9 @@ module.exports = function($stateProvider, $urlRouterProvider) {
 };
 
 
-},{"./controllers/challenges/new":3,"./controllers/challenges/show":4,"./controllers/main":5,"./controllers/reviews/edit":6,"./controllers/reviews/new":7,"./controllers/reviews/show":8,"./controllers/submissions/edit":9,"./controllers/submissions/new":10,"./controllers/submissions/show":11,"fs":1}],14:[function(require,module,exports){
+},{"./controllers/challenges/new":2,"./controllers/challenges/show":3,"./controllers/main":4,"./controllers/reviews/edit":5,"./controllers/reviews/new":6,"./controllers/reviews/show":7,"./controllers/submissions/edit":8,"./controllers/submissions/new":9,"./controllers/submissions/show":10,"fs":18}],13:[function(require,module,exports){
 /**
- * @license AngularJS v1.2.14-build.2316+sha.24fe163
+ * @license AngularJS v1.2.14-build.2317+sha.348a771
  * (c) 2010-2014 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -172,7 +170,7 @@ function minErr(module) {
       return match;
     });
 
-    message = message + '\nhttp://errors.angularjs.org/1.2.14-build.2316+sha.24fe163/' +
+    message = message + '\nhttp://errors.angularjs.org/1.2.14-build.2317+sha.348a771/' +
       (module ? module + '/' : '') + code;
     for (i = 2; i < arguments.length; i++) {
       message = message + (i == 2 ? '?' : '&') + 'p' + (i-2) + '=' +
@@ -1982,7 +1980,7 @@ function setupModuleLoader(window) {
  * - `codeName` – `{string}` – Code name of the release, such as "jiggling-armfat".
  */
 var version = {
-  full: '1.2.14-build.2316+sha.24fe163',    // all of these placeholder strings will be replaced by grunt's
+  full: '1.2.14-build.2317+sha.348a771',    // all of these placeholder strings will be replaced by grunt's
   major: 1,    // package task
   minor: 2,
   dot: 14,
@@ -20977,7 +20975,7 @@ var styleDirective = valueFn({
 })(window, document);
 
 !angular.$$csp() && angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>');
-},{}],15:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 // AngularFire is an officially supported AngularJS binding for Firebase.
 // The bindings let you associate a Firebase URL with a model (or set of
 // models), and they will be transparently kept in sync across all clients
@@ -21911,7 +21909,7 @@ var styleDirective = valueFn({
   };
 })();
 
-},{}],16:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function() {function g(a){throw a;}var aa=void 0,j=!0,k=null,l=!1;function ba(a){return function(){return this[a]}}function o(a){return function(){return a}}var r,ca=this;function da(){}function ea(a){a.mb=function(){return a.ed?a.ed:a.ed=new a}}
 function fa(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";
 else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function s(a){return a!==aa}function ga(a){var b=fa(a);return"array"==b||"object"==b&&"number"==typeof a.length}function u(a){return"string"==typeof a}function ha(a){return"number"==typeof a}function ia(a){var b=typeof a;return"object"==b&&a!=k||"function"==b}Math.floor(2147483648*Math.random()).toString(36);function ja(a,b,c){return a.call.apply(a.bind,arguments)}
@@ -22060,7 +22058,7 @@ H.prototype.setOnDisconnect=H.prototype.Sd;H.prototype.hb=function(a,b,c){z("Fir
 H.goOffline=function(){z("Firebase.goOffline",0,0,arguments.length);Y.mb().Ia()};H.goOnline=function(){z("Firebase.goOnline",0,0,arguments.length);Y.mb().ab()};function Tb(a,b){y(!b||a===j||a===l,"Can't turn on custom loggers persistently.");a===j?("undefined"!==typeof console&&("function"===typeof console.log?Rb=v(console.log,console):"object"===typeof console.log&&(Rb=function(a){console.log(a)})),b&&ob.set("logging_enabled",j)):a?Rb=a:(Rb=k,ob.remove("logging_enabled"))}H.enableLogging=Tb;
 H.ServerValue={TIMESTAMP:{".sv":"timestamp"}};H.INTERNAL=Z;H.Context=Y;})();
 
-},{}],17:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 (function() {var COMPILED=!0,goog=goog||{};goog.global=this;goog.DEBUG=!0;goog.LOCALE="en";goog.provide=function(a){if(!COMPILED){if(goog.isProvided_(a))throw Error('Namespace "'+a+'" already declared.');delete goog.implicitNamespaces_[a];for(var b=a;(b=b.substring(0,b.lastIndexOf(".")))&&!goog.getObjectByName(b);)goog.implicitNamespaces_[b]=!0}goog.exportPath_(a)};goog.setTestOnly=function(a){if(COMPILED&&!goog.DEBUG)throw a=a||"",Error("Importing test-only code into non-debug environment"+a?": "+a:".");};
 COMPILED||(goog.isProvided_=function(a){return!goog.implicitNamespaces_[a]&&!!goog.getObjectByName(a)},goog.implicitNamespaces_={});goog.exportPath_=function(a,b,c){a=a.split(".");c=c||goog.global;!(a[0]in c)&&c.execScript&&c.execScript("var "+a[0]);for(var d;a.length&&(d=a.shift());)!a.length&&goog.isDef(b)?c[d]=b:c=c[d]?c[d]:c[d]={}};goog.getObjectByName=function(a,b){for(var c=a.split("."),d=b||goog.global,e;e=c.shift();)if(goog.isDefAndNotNull(d[e]))d=d[e];else return null;return d};
 goog.globalize=function(a,b){var c=b||goog.global,d;for(d in a)c[d]=a[d]};goog.addDependency=function(a,b,c){if(!COMPILED){for(var d,a=a.replace(/\\/g,"/"),e=goog.dependencies_,f=0;d=b[f];f++){e.nameToPath[d]=a;a in e.pathToNames||(e.pathToNames[a]={});e.pathToNames[a][d]=true}for(d=0;b=c[d];d++){a in e.requires||(e.requires[a]={});e.requires[a][b]=true}}};goog.ENABLE_DEBUG_LOADER=!0;
@@ -22395,7 +22393,7 @@ FirebaseSimpleLogin.prototype.removeUser=function(a,b,c){fb.simplelogin.util.val
 FirebaseSimpleLogin.prototype.sendPasswordResetEmail=function(a,b){fb.simplelogin.util.validation.validateArgCount("FirebaseSimpleLogin.sendPasswordResetEmail",2,2,arguments.length);fb.simplelogin.util.validation.validateCallback("FirebaseSimpleLogin.sendPasswordResetEmail",2,b,!1);this.manageFirebaseUsers("sendPasswordResetEmail",{email:a},function(a,d){return b&&b(a,!!d)})};goog.exportProperty(FirebaseSimpleLogin.prototype,"sendPasswordResetEmail",FirebaseSimpleLogin.prototype.sendPasswordResetEmail);
 FirebaseSimpleLogin.onOpen=function(a){fb.simplelogin.transports.WinChan.onOpen(a)};goog.exportProperty(FirebaseSimpleLogin,"onOpen",FirebaseSimpleLogin.onOpen);})();
 
-},{}],18:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.8
@@ -25053,4 +25051,6 @@ angular.module('ui.router.compat')
   .provider('$route', $RouteProvider)
   .directive('ngView', $ViewDirective);
 })(window, window.angular);
-},{}]},{},[2])
+},{}],18:[function(require,module,exports){
+module.exports=require(7)
+},{}]},{},[1])
