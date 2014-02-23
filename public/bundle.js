@@ -9,7 +9,14 @@ require('angularfire/angularfire');
 angular.module('couch2code', ['ui.router','firebase'])
   .config(require('./states'))
 
-},{"./states":4,"angular/angular":5,"angularfire/angularfire":6,"firebase/firebase":7,"ui-router/release/angular-ui-router":8}],3:[function(require,module,exports){
+},{"./states":12,"angular/angular":13,"angularfire/angularfire":14,"firebase/firebase":15,"ui-router/release/angular-ui-router":16}],3:[function(require,module,exports){
+module.exports = function($scope) {
+
+};
+
+},{}],4:[function(require,module,exports){
+module.exports=require(3)
+},{}],5:[function(require,module,exports){
 module.exports = function($scope, $firebase) {
   // controller logic here
   $scope.emails = $firebase(new Firebase('https://couch2code.firebaseio.com/emails'));
@@ -21,7 +28,19 @@ module.exports = function($scope, $firebase) {
   };
 };
 
-},{}],4:[function(require,module,exports){
+},{}],6:[function(require,module,exports){
+module.exports=require(3)
+},{}],7:[function(require,module,exports){
+module.exports=require(3)
+},{}],8:[function(require,module,exports){
+module.exports=require(1)
+},{}],9:[function(require,module,exports){
+module.exports=require(3)
+},{}],10:[function(require,module,exports){
+module.exports=require(3)
+},{}],11:[function(require,module,exports){
+module.exports=require(3)
+},{}],12:[function(require,module,exports){
 var fs = require('fs');
 
 module.exports = function($stateProvider, $urlRouterProvider) {
@@ -31,11 +50,51 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       url: '/',
       controller: require('./controllers/main'),
       template: "<header class=\"jumbotron\">\n  <div class=\"container\">\n    <h1>Couch2Code</h1>\n    <p>To get better at programming you must get off the couch and start writing code! Don't know where to start, we are here to help!</p>\n  </div>    \n</header>\n<div class=\"container\">\n  <div class=\"alert alert-success\" ng-show=\"completed\">\n    <h4>Thank you for registering for our mailing list, we will keep you updated</h4>\n  </div>\n  <center>\n  <h2>Get Registered</h2>\n  <p>or <a ui-sref=\"login\">Login</a>\n</center>\n  <div style=\"padding-top: 50px;\" ng-hide=\"completed\">\n    <form class=\"col-lg-4 col-lg-offset-4\" name=\"form\" novalidate ng-submit=\"register('email')\">\n      <div class=\"form-group\">\n        <input class=\"input-lg form-control\" type=\"email\" placeholder=\"email\" ng-model=\"user.email\">\n      </div>\n      <div class=\"form-group\">\n        <input class=\"input-lg form-control\" type=\"password\" placeholder=\"password\" ng-model=\"user.password\">\n      </div>\n      <div class=\"form-group\">\n        <button class=\"btn btn-info\" ng-click=\"register('github')\">\n          Github\n        </button>\n        <button class=\"btn btn-info\" ng-click=\"register('twitter')\">\n          Twitter\n        </button>\n        <button class=\"btn btn-large btn-primary pull-right\">\n          Register\n        </button>\n      </div>\n    </form>\n  </div>\n</div>\n<footer>\n  <div class=\"container\">\n    <p>All Rights Reserved.</p>\n  </div>\n</footer>\n"
+    })
+    .state('new-challenge', {
+      url: '/challenges/new',
+      controller: require('./controllers/challenges/new'),
+      template: "<div class=\"container\">\n  <h2>{{state}} Challenge</h2>\n  <form name=\"form\" novalidate ng-submit=\"save()\">\n    <div class=\"form-group\">\n      <input class=\"form-control input-lg\" placeholder=\"title\" ng-model=\"challenge.title\">\n    </div>\n    <div class=\"form-group\">\n      <label>Details</label>\n      <!-- should accept markdown -->\n      <!-- use code mirror as input -->\n      <textarea class=\"form-control\" rows=\"20\" ng-model=\"challenge.description\">\n    </div>\n    <div class=\"form-group\">\n      <label>Review Criteria</label>\n      <p>When reviewing a submission, use this criteria to determine\n        quality of the submission ie. functional, ux, test coverage, etc</p>\n      <textarea class=\"form-control\" rows=\"15\" ng-model=\"challenge.criteria\"></textarea>\n    </div>\n    <div class=\"form-group\">\n      <label>Tags</label>\n      <input class=\"form-control\" ng-model=\"challenge.tags\">\n    </div>\n    <div class=\"form-group\">\n      <button class=\"btn btn-default\">Save as Draft</button>\n      <button class=\"btn btn-default\">Submit</button>\n    </div>\n  </form>\n"
+    })
+    .state('show-challenge', {
+      url: '/challenges/:id', 
+      controller: require('./controllers/challenges/show'),
+      template: ""
+    })
+    .state('new-submission', {
+      url: '/submissions/new',
+      controller: require('./controllers/submissions/new'),
+      template: "<div class=\"container\">\n  <h2>{{ype}} Submission</h2>\n  <form novalidate>\n    <div class=\"form-group\">\n      <label>Source (link)</label>\n      <input class=\"form-control\" ng-model=\"submission.link\">\n    </div>\n    <div class=\"form-group\">\n      <label>Description</label>\n      <textarea class=\"form-control\" ng-model=\"submission.body\"></textarea>\n    </div>\n    <div class=\"form-group\">\n      <label>Language</label>\n      <input class=\"form-control\" ng-model=\"submission.lang\">\n    </div>\n    <div class=\"form-group\">\n      <button class=\"btn btn-primary\">Post</button>\n    </div>\n  </form>\n</div>\n"
+    })
+    .state('show-submission', {
+      url: '/submissions/:id',
+      controller: require('./controllers/submissions/show'),
+      template: ""
+    })
+    .state('edit-submission', {
+      url: '/submissions/:id/edit',
+      controller: require('./controllers/submissions/edit'),
+      template: "<div class=\"container\">\n  <h2>{{ype}} Submission</h2>\n  <form novalidate>\n    <div class=\"form-group\">\n      <label>Source (link)</label>\n      <input class=\"form-control\" ng-model=\"submission.link\">\n    </div>\n    <div class=\"form-group\">\n      <label>Description</label>\n      <textarea class=\"form-control\" ng-model=\"submission.body\"></textarea>\n    </div>\n    <div class=\"form-group\">\n      <label>Language</label>\n      <input class=\"form-control\" ng-model=\"submission.lang\">\n    </div>\n    <div class=\"form-group\">\n      <button class=\"btn btn-primary\">Post</button>\n    </div>\n  </form>\n</div>\n"
+    })
+    .state('new-review', {
+      url: '/reviews/new', 
+      controller: require('./controllers/reviews/new'),
+      template: "<div class=\"contains\">\n  <h2>Review</h2>\n  <form name=\"form\" novalidate>\n    <div class=\"form-group\">\n      <input class=\"input-lg form-control\" placeholder=\"review date\" ng-model=\"review.date\">\n    </div>\n    <div class=\"form-group\">\n      <input ng-model=\"review.score\">\n    </div>\n    <div class=\"form-group\">\n      <textarea class=\"form-control\" rows=\"20\" placeholder=\"review.notes\"></textarea>\n    </div>\n    <div class=\"form-group\">\n      <button class=\"btn btn-default\">Post</button>\n    </div>\n  </form>\n</div>\n"
+    })
+    .state('show-review', {
+      url: '/reviews/:id',
+      controller: require('./controllers/reviews/show'),
+      template: "<div class=\"container\">\n  <h2>Submission Review</h2>\n  <div class=\"media\">\n    <a href=\"#\">\n      <img src=\"{{reviewer_avatar}}\" />\n    </a>\n    <div class=\"media-content\">\n      <h4 class=\"media-heading\">Submission Review</h4>\n      <div class=\"media-body\">\n        <div class=\"label label-default pull-right\">{{review.score}}</div>\n\t{{review.notes}}\n      </div>\n    </div>\n  </div>\n</div>\n"
+    })
+    .state('edit-review', {
+      url: '/reviews/:id/edit',
+      controllers: require('./controllers/reviews/edit'),
+      template: "<div class=\"contains\">\n  <h2>Review</h2>\n  <form name=\"form\" novalidate>\n    <div class=\"form-group\">\n      <input class=\"input-lg form-control\" placeholder=\"review date\" ng-model=\"review.date\">\n    </div>\n    <div class=\"form-group\">\n      <input ng-model=\"review.score\">\n    </div>\n    <div class=\"form-group\">\n      <textarea class=\"form-control\" rows=\"20\" placeholder=\"review.notes\"></textarea>\n    </div>\n    <div class=\"form-group\">\n      <button class=\"btn btn-default\">Post</button>\n    </div>\n  </form>\n</div>\n"
     });
 };
 
 
-},{"./controllers/main":3,"fs":1}],5:[function(require,module,exports){
+},{"./controllers/challenges/new":3,"./controllers/challenges/show":4,"./controllers/main":5,"./controllers/reviews/edit":6,"./controllers/reviews/new":7,"./controllers/reviews/show":8,"./controllers/submissions/edit":9,"./controllers/submissions/new":10,"./controllers/submissions/show":11,"fs":1}],13:[function(require,module,exports){
 /**
  * @license AngularJS v1.2.14-build.2312+sha.f296e2e
  * (c) 2010-2014 Google, Inc. http://angularjs.org
@@ -20911,7 +20970,7 @@ var styleDirective = valueFn({
 })(window, document);
 
 !angular.$$csp() && angular.element(document).find('head').prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide{display:none !important;}ng\\:form{display:block;}.ng-animate-block-transitions{transition:0s all!important;-webkit-transition:0s all!important;}</style>');
-},{}],6:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 // AngularFire is an officially supported AngularJS binding for Firebase.
 // The bindings let you associate a Firebase URL with a model (or set of
 // models), and they will be transparently kept in sync across all clients
@@ -21845,7 +21904,7 @@ var styleDirective = valueFn({
   };
 })();
 
-},{}],7:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 (function() {function g(a){throw a;}var aa=void 0,j=!0,k=null,l=!1;function ba(a){return function(){return this[a]}}function o(a){return function(){return a}}var r,ca=this;function da(){}function ea(a){a.mb=function(){return a.ed?a.ed:a.ed=new a}}
 function fa(a){var b=typeof a;if("object"==b)if(a){if(a instanceof Array)return"array";if(a instanceof Object)return b;var c=Object.prototype.toString.call(a);if("[object Window]"==c)return"object";if("[object Array]"==c||"number"==typeof a.length&&"undefined"!=typeof a.splice&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("splice"))return"array";if("[object Function]"==c||"undefined"!=typeof a.call&&"undefined"!=typeof a.propertyIsEnumerable&&!a.propertyIsEnumerable("call"))return"function"}else return"null";
 else if("function"==b&&"undefined"==typeof a.call)return"object";return b}function s(a){return a!==aa}function ga(a){var b=fa(a);return"array"==b||"object"==b&&"number"==typeof a.length}function u(a){return"string"==typeof a}function ha(a){return"number"==typeof a}function ia(a){var b=typeof a;return"object"==b&&a!=k||"function"==b}Math.floor(2147483648*Math.random()).toString(36);function ja(a,b,c){return a.call.apply(a.bind,arguments)}
@@ -21994,7 +22053,7 @@ H.prototype.setOnDisconnect=H.prototype.Sd;H.prototype.hb=function(a,b,c){z("Fir
 H.goOffline=function(){z("Firebase.goOffline",0,0,arguments.length);Y.mb().Ia()};H.goOnline=function(){z("Firebase.goOnline",0,0,arguments.length);Y.mb().ab()};function Tb(a,b){y(!b||a===j||a===l,"Can't turn on custom loggers persistently.");a===j?("undefined"!==typeof console&&("function"===typeof console.log?Rb=v(console.log,console):"object"===typeof console.log&&(Rb=function(a){console.log(a)})),b&&ob.set("logging_enabled",j)):a?Rb=a:(Rb=k,ob.remove("logging_enabled"))}H.enableLogging=Tb;
 H.ServerValue={TIMESTAMP:{".sv":"timestamp"}};H.INTERNAL=Z;H.Context=Y;})();
 
-},{}],8:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /**
  * State-based routing for AngularJS
  * @version v0.2.8

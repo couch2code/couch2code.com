@@ -31,7 +31,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
     .state('edit-submission', {
       url: '/submissions/:id/edit',
       controller: require('./controllers/submissions/edit'),
-      template: fs.readFileSync(__dirname + '/templates/submission/form.html')
+      template: fs.readFileSync(__dirname + '/templates/submissions/form.html')
     })
     .state('new-review', {
       url: '/reviews/new', 
