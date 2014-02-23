@@ -21,10 +21,10 @@
         <input class="input-lg form-control" type="password" placeholder="password" ng-model="user.password">
       </div>
       <div class="form-group">
-        <button class="btn btn-info" ng-click="register('github')">
+        <button class="btn btn-info" ng-click="loginObj.$login('github')">
           Github
         </button>
-        <button class="btn btn-info" ng-click="register('twitter')">
+	<button class="btn btn-info" ng-click="loginObj.$login('twitter')">
           Twitter
         </button>
         <button class="btn btn-large btn-primary pull-right">
