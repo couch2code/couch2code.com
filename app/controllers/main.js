@@ -1,4 +1,6 @@
-module.exports = function($scope, $firebase, $firebaseSimpleLogin) {
-  var loginRef = new Firebase('https://couch2code.firebaseio.com');
-  $scope.loginObj = $firebaseSimpleLogin(loginRef);
+module.exports = function($scope, $firebase, $firebaseSimpleLogin, $state) {
+  $scope.register = function(user) {
+    $scope.loginObj.$createUser(user.email, user.password, false);
+    $state.go('challenges');
+  };
 };

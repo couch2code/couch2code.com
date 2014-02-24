@@ -1,41 +1,46 @@
-<header class="jumbotron">
-  <div class="container">
-    <h1>Couch2Code</h1>
-    <p>To get better at programming you must get off the couch and start writing code! Don't know where to start, we are here to help!</p>
-  </div>    
-</header>
 <div class="container">
   <div class="alert alert-success" ng-show="completed">
     <h4>Thank you for registering for our mailing list, we will keep you updated</h4>
   </div>
   <center>
-  <h2>Get Registered</h2>
-  <p>or <a ui-sref="login">Login</a>
-</center>
+  <h2>Sign In with</h2>
+  </center>
+  <div class="col-lg-4 col-lg-offset-4" style="margin-top: 20px;">
+    <button class="btn btn-info" ng-click="loginObj.$login('github')">
+      Github
+    </button>
+    <button class="btn btn-info" ng-click="loginObj.$login('twitter')">
+      Twitter
+    </button>
+    <button class="btn btn-info" ng-click="loginObj.$login('persona')">
+      Persona
+    </button>
+    <button class="btn btn-info" ng-click="loginObj.$login('facebook')">
+      Facebook
+    </button>
+  </div>
+  
   <div style="padding-top: 50px;" ng-hide="completed">
     <form class="col-lg-4 col-lg-offset-4" name="form" novalidate ng-submit="register('email')">
+      <h3>or Register</h3>
+      <p>If you have already registered then <a ui-sref="login">Login</p>
       <div class="form-group">
-        <input class="input-lg form-control" type="email" placeholder="email" ng-model="user.email">
+        <input class="input-lg form-control" type="email" placeholder="email" ng-model="user.email" required>
       </div>
       <div class="form-group">
-        <input class="input-lg form-control" type="password" placeholder="password" ng-model="user.password">
+        <input class="input-lg form-control" type="password" placeholder="password" ng-model="user.password" required>
       </div>
       <div class="form-group">
-        <button class="btn btn-info" ng-click="loginObj.$login('github')">
-          Github
-        </button>
-        <button class="btn btn-info" ng-click="loginObj.$login('twitter')">
-          Twitter
-        </button>
-        <button class="btn btn-info" ng-click="loginObj.$login('facebook')">
-          Facebook
-        </button>
-        <button class="btn btn-large btn-primary pull-right">
+        &nbsp;
+        <button class="btn btn-large btn-primary pull-right" 
+          ng-disabled="form.$invalid" ng-click="register(user)">
           Register
         </button>
       </div>
     </form>
+    
   </div>
+
 </div>
 <footer>
   <div class="container">

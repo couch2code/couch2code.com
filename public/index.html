@@ -5,7 +5,15 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <body>
+    <header class="jumbotron">
+      <div class="container">
+        <button class="btn btn-warning pull-right" ng-show="loginObj.user" ng-click="loginObj.$logout()">Logout</button>
+        <h1>Couch2Code</h1>
+        <p>To get better at programming you must get off the couch and start writing code! Don't know where to start, we are here to help!</p>
+      </div>    
+    </header>
     <div ui-view></div>
+    <script src='https://login.persona.org/include.js'></script>
     <script src="bundle.js"></script>
   </body>
 </html>

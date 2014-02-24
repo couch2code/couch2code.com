@@ -8,6 +8,16 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       controller: require('./controllers/main'),
       template: fs.readFileSync(__dirname + '/templates/main.html')
     })
+    .state('login', {
+      url: '/login',
+      controller: require('./controllers/login'),
+      template: fs.readFileSync(__dirname + '/templates/login.html')
+    })
+    .state('challenges', {
+      url: '/challenges',
+      controller: require('./controllers/challenges/index'),
+      template: fs.readFileSync(__dirname + '/templates/challenges/index.html')
+    })
     .state('new-challenge', {
       url: '/challenges/new',
       controller: require('./controllers/challenges/new'),
