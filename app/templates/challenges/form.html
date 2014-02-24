@@ -21,7 +21,7 @@
       <input class="form-control" ng-model="challenge.tags">
     </div>
     <div class="form-group">
-      <button class="btn btn-default">Save as Draft</button>
-      <button class="btn btn-default">Submit</button>
+      <button class="btn btn-default" ng-click="save('draft')">Save as Draft</button>
+      <button class="btn btn-default" ng-click="save('published')">Publish</button>
     </div>
   </form>

@@ -1,22 +1,25 @@
 <div class="container">
+  <a class="btn btn-primary pull-right" ui-sref="new-challenge">New Challenge</a>
   <h2>Challenges</h2>
-  <button class="btn btn-primary">New Challenge</button>
   <form name="search" novalidate>
     <div class="form-group">
-      <input class="form-control" placeholder="search">
-    </div>
-    <div class="form-group">
-      <button class="btn btn-primary">Search</button>
+      <div class="input-group">
+        <input class="form-control" placeholder="search">
+        <span class="input-group-btn">
+          <button class="btn btn-primary">Search</button>
+        </span>
+      </div>
     </div>
   </form>
   <div class="media-list">
-  <div class="media">
+  <div class="media" ng-repeat="challenge in challenges">
     <a class="pull-left" href="#">
       <img class="media-object" src="http://placehold.it/64" />
     </a>
     <div class="media-body">
-      <h4 class="media-heading">Challenge Name</h4>
-      <p>Challenge Description ........</p>
+      <h4 class="media-heading">{{challenge.title}}</h4>
+      <!-- TODO markdown enabled... -->
+      {{challenge.description}}
       <!-- challenge level of difficulty -->
       <!-- maybe like a golf style difficulty rating -->
       <!-- first the challenge is rated par 3, par 4, par 5 -->
@@ -24,8 +27,9 @@
       <!-- each player then can have a simple aggregate score of all their challenges -->
       <!-- @twilson has played 20 challenges and is -2 under par -->
       <!-- @james has played 30 challenges and is -4 under par -->
-
-      <span class="label label-primary">Par 3</span>
+      <h4>Criteria</h4>
+      {{challenge.criteria}}
+      <span class="label label-primary">{{challenge.difficulty}}</span>
       <!-- number of developers that have completed challenge -->
       <span class="badge badge-info">42</span>
     </div>

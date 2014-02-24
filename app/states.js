@@ -16,12 +16,18 @@ module.exports = function($stateProvider, $urlRouterProvider) {
     .state('challenges', {
       url: '/challenges',
       controller: require('./controllers/challenges/index'),
-      template: fs.readFileSync(__dirname + '/templates/challenges/index.html')
+      template: fs.readFileSync(__dirname + '/templates/challenges/index.html'),
+      resolve: { challenges: function($firebase, fireUrl) {
+        return $firebase(new Firebase(fireUrl + '/challenges'));
+      }}
     })
     .state('new-challenge', {
       url: '/challenges/new',
       controller: require('./controllers/challenges/new'),
-      template: fs.readFileSync(__dirname + '/templates/challenges/form.html')
+      template: fs.readFileSync(__dirname + '/templates/challenges/form.html'),
+      resolve: { challenges: function($firebase, fireUrl) {
+        return $firebase(new Firebase(fireUrl + '/challenges'));
+      }}
     })
     .state('show-challenge', {
       url: '/challenges/:id', 
