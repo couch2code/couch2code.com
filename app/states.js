@@ -35,7 +35,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       template: fs.readFileSync(__dirname + '/templates/challenges/show.html')
     })
     .state('new-submission', {
-      url: '/submissions/new',
+      url: '/submissions/new?challenge',
       controller: require('./controllers/submissions/new'),
       template: fs.readFileSync(__dirname + '/templates/submissions/form.html')
     })
@@ -50,7 +50,7 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       template: fs.readFileSync(__dirname + '/templates/submissions/form.html')
     })
     .state('new-review', {
-      url: '/reviews/new', 
+      url: '/reviews/new?submission', 
       controller: require('./controllers/reviews/new'),
       template: fs.readFileSync(__dirname + '/templates/reviews/form.html')
     })

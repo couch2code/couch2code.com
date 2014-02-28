@@ -1,3 +1,3 @@
-module.exports = function($scope) {
-
+module.exports = function($scope, $stateParams) {
+  console.log($stateParams.challenge);
 };

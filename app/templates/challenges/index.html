@@ -12,7 +12,7 @@
     </div>
   </form>
   <div class="media-list">
-  <div class="media" ng-repeat="challenge in challenges">
+  <div class="media" ng-repeat="challenge in challenges | orderByPriority">
     <a class="pull-left" href="#">
       <img class="media-object" src="http://placehold.it/64" />
     </a>
@@ -32,7 +32,7 @@
       <span class="label label-primary">{{challenge.difficulty}}</span>
       <!-- number of developers that have completed challenge -->
       <span class="badge badge-info">42</span>
-      <a class="btn btn-primary" ui-sref="new-submission">Post Submission</a>
+      <a class="btn btn-primary" ui-sref="new-submission({challenge: challenge.$id})">Post Submission</a>
     </div>
     </div>
   </div>
