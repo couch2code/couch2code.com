@@ -5,7 +5,7 @@
   <center>
   <h2>Sign In with</h2>
   </center>
-  <div class="col-lg-4 col-lg-offset-4" style="margin-top: 20px;">
+  <div class="col-lg-4 col-lg-offset-4" style="margin-top: 20px; text-align: center">
     <button class="btn btn-info" ng-click="loginObj.$login('github')">
       Github
     </button>
@@ -15,15 +15,12 @@
     <button class="btn btn-info" ng-click="loginObj.$login('persona')">
       Persona
     </button>
-    <button class="btn btn-info" ng-click="loginObj.$login('facebook')">
-      Facebook
-    </button>
   </div>
   
   <div style="padding-top: 50px;" ng-hide="completed">
     <form class="col-lg-4 col-lg-offset-4" name="form" novalidate ng-submit="register('email')">
       <h3>or Register</h3>
-      <p>If you have already registered then <a ui-sref="login">Login</p>
+      <p>If you have already registered then <a ui-sref="login">Login</a></p>
       <div class="form-group">
         <input class="input-lg form-control" type="email" placeholder="email" ng-model="user.email" required>
       </div>
