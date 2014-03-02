@@ -4,7 +4,7 @@ module.exports = function($rootScope, $firebaseSimpleLogin, $state, fireUrl) {
   
   $rootScope.$on('$firebaseSimpleLogin:login', function(e, user) {
     // when logged in succeeds
-    $state.go('challenges')
+    $state.go('challenges.list')
   });
   $rootScope.$on('$firebaseSimpleLogin:logout', function(e) {
     // when logged out

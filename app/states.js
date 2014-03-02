@@ -13,27 +13,6 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       controller: require('./controllers/login'),
       template: fs.readFileSync(__dirname + '/templates/login.html')
     })
-    .state('challenges', {
-      url: '/challenges',
-      controller: require('./controllers/challenges/index'),
-      template: fs.readFileSync(__dirname + '/templates/challenges/index.html'),
-      resolve: { challenges: function($firebase, fireUrl) {
-        return $firebase(new Firebase(fireUrl + '/challenges'));
-      }}
-    })
-    .state('new-challenge', {
-      url: '/challenges/new',
-      controller: require('./controllers/challenges/new'),
-      template: fs.readFileSync(__dirname + '/templates/challenges/form.html'),
-      resolve: { challenges: function($firebase, fireUrl) {
-        return $firebase(new Firebase(fireUrl + '/challenges'));
-      }}
-    })
-    .state('show-challenge', {
-      url: '/challenges/:id', 
-      controller: require('./controllers/challenges/show'),
-      template: fs.readFileSync(__dirname + '/templates/challenges/show.html')
-    })
     .state('new-submission', {
       url: '/submissions/new?challenge',
       controller: require('./controllers/submissions/new'),
