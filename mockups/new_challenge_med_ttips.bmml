@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="wireframe" fontFace="Balsamiq Sans" measuredW="1030" measuredH="758" mockupW="992" mockupH="726">
+<mockup version="1.0" skin="wireframe" fontFace="Balsamiq Sans" measuredW="1030" measuredH="767" mockupW="992" mockupH="735">
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="38" y="32" w="992" h="726" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
@@ -122,10 +122,10 @@
         </control>
       </groupChildrenDescriptors>
     </control>
-    <control controlID="39" controlTypeID="com.balsamiq.mockups::ComboBox" x="79" y="597" w="110" h="-1" measuredW="34" measuredH="155" zOrder="45" locked="false" isInGroup="-1">
+    <control controlID="39" controlTypeID="com.balsamiq.mockups::ComboBox" x="79" y="597" w="110" h="-1" measuredW="34" measuredH="170" zOrder="45" locked="false" isInGroup="-1">
       <controlProperties>
         <state>up</state>
-        <text>%20%0ACoding%20Style%0AEconomy%0AFlexibility%0AFunctional%0AReliability%0AScalability%0ATesting%0AUsability</text>
+        <text>%20%0ACoding%20Style%0AEconomy%0AFlexibility%0AFunctional%0AReliability%0AScalability%0ASecurity%0ATesting%0AUsability</text>
       </controlProperties>
     </control>
     <control controlID="40" controlTypeID="com.balsamiq.mockups::TextInput" x="205" y="598" w="549" h="-1" measuredW="209" measuredH="24" zOrder="24" locked="false" isInGroup="-1">
