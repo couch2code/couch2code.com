@@ -1,3 +1,6 @@
+var fs = require('fs');
+var path = require('path');
+
 module.exports = angular.module('challenges', [])
   .config(function($stateProvider) {
     "use strict";
@@ -17,5 +20,15 @@ module.exports = angular.module('challenges', [])
       url: '/new',
       controller: require('./controllers/new'),
       template: fs.readFileSync(__dirname + '/templates/form.html')
-     });
+     })
+    .state('challenges.edit', {
+      url: '/:id/edit',
+      controller: require('./controllers/edit.js'),
+      template: fs.readFileSync(__dirname + '/templates/form.html') 
+    })
+    .state('challenges.show', {
+      url: '/:id',
+      controller: require('./controllers/show.js'),
+      template: fs.readFileSync(__dirname + '/templates/show.html')
+    });
   });
