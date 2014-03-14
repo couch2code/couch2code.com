@@ -11,12 +11,31 @@ module.exports = angular.module('c2c.reviews', [])
       .state('reviews.list', {
         url: '',
         controller: require('./controllers/list'),
-        template: fs.readFileSync(__dirname + '/templates/list.html')
+        template: fs.readFileSync(__dirname + '/templates/list.html'),
+        resolve: {
+          reviews: function(fireUrl, $firebase, $stateParams) {
+            return $firebase(
+              new Firebase(
+                path.join(fireUrl, 'reviews')
+              ).query($stateParams.submitId)
+            )
+          }
+        }
       })
       .state('reviews.new', {
         url: '/new',
         controller: require('./controllers/new'),
-        template: fs.readFileSync(__dirname + '/template/new.html')
+        template: fs.readFileSync(__dirname + '/template/new.html'),
+        resolve: {
+        reviews: function(fireUrl, $firebase, $stateParams) {
+          return $firebase(
+            (new Firebase(
+                path.join(fireUrl, 'reviews')
+              )).query($stateParams.submitId)
+            )
+          }
+        }
+       
       })
       .state('reviews.show', {
         url: '/:id',
