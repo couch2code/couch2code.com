@@ -1,3 +1,9 @@
+```
+( )( )( )
+=========
+[       ]
+```
+
 The logo for couch2code is comprised of:
 
 * 1 line of 3 pairs of parentheses, with at least one em space between each pair
