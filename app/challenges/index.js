@@ -12,32 +12,35 @@ module.exports = angular.module('challenges', [])
       template: '<div ui-view></div>'
     })
     .state('challenges.list', {
-      url: '/',
+      url: '',
       controller: require('./controllers/list'),
-      template: fs.readFileSync(__dirname + '/templates/list.html'),
-      resolve: {
-        challenges: function(fireUrl, $firebase) {
-          return $firebase(
-            new Firebase(
-              path.join(fireUrl, 'challenges')
-            )
-          );
-        }
-      }
+      template: fs.readFileSync(__dirname + '/templates/list.html')
+      // ,
+      // resolve: {
+      //   challenges: function(fireUrl, $firebase) {
+      //     console.log('resolve on');
+      //     return $firebase(
+      //       new Firebase(
+      //         path.join(fireUrl, 'challenges')
+      //       )
+      //     );
+      //   }
+      // }
     })
     .state('challenges.new', {
       url: '/new',
       controller: require('./controllers/new'),
-      template: fs.readFileSync(__dirname + '/templates/form.html'),
-      resolve: {
-        challenges: function(fireUrl, $firebase) {
-          return $firebase(
-            new Firebase(
-              path.join(fireUrl, 'challenges')
-            )
-          );
-        }
-      }
+      template: fs.readFileSync(__dirname + '/templates/form.html')
+      //
+      // resolve: {
+      //   challenges: function(fireUrl, $firebase) {
+      //     return $firebase(
+      //       new Firebase(
+      //         path.join(fireUrl, 'challenges')
+      //       )
+      //     );
+      //   }
+      // }
 
      })
     .state('challenges.edit', {

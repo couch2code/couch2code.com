@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-module.exports = function($stateProvider, $urlRouterProvider) {
+module.exports = function($stateProvider, $urlRouterProvider, $locationProvider) {
   $urlRouterProvider.otherwise('/');
   $stateProvider
     .state('main', {
@@ -13,5 +13,6 @@ module.exports = function($stateProvider, $urlRouterProvider) {
       controller: require('./controllers/login'),
       template: fs.readFileSync(__dirname + '/templates/login.html')
     });
+  $locationProvider.html5Mode(true);
 };
 

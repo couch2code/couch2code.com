@@ -1,1 +1,37 @@
-<h1>Hello World</h1>
+<div class="container">
+  <div class="col-lg-4">
+  </div>
+  <div class="col-lg-5 col-lg-offset-1">
+    <h2>{{mode}} Challenge</h2>
+    <form name="form" novalidate ng-submit="save(challenge)">
+      <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" ng-model="challenge.title">
+      </div>
+      <div class="form-group">
+        <label>Background / Description</label>
+        <textarea rows=8 class="form-control" ng-model="challenge.description"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="button" class="pull-right btn btn-warning" ng-click="addGoal()">Add Goal</button>
+        <h3>Goals</h3>
+        <table class="table table-bordered">
+          <tr>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Required?</th>
+          </tr>
+          <tr ng-repeat="goal in challenge.goals">
+            <td><span class="label label-default">{{goal.type}}</span></td>
+            <td>{{goal.description}}</td>
+            <td>{{goal.requried}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-default">Save As Draft</button>
+        <button class="btn btn-default pull-right">Publish</button>
+      </div>
+    </form>
+  </div>
+</div>
