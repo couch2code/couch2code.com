@@ -1,5 +1,4 @@
 module.exports = function($scope, challenges) {
-  "use strict";
-
+  "use strict"; 
   $scope.challenges = challenges;
 };

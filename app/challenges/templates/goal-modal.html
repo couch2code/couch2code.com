@@ -1,0 +1,26 @@
+<div class="modal-header">
+  <h4 class="modal-title">New Goal</h4>
+</div>
+<div class="modal-body">
+  <form name="modal-form" novalidate>
+  <div class="form-group">
+    <label>Description</label>
+    <textarea class="form-control" ng-model="goal.description"></textarea>
+  </form>
+  <div class="form-group">
+    <label>Type</label>
+    <select class="form-control" ng-model="goal.type">
+      <option>Functional</option>
+      <option>Economy</option>
+      <option>Coding Style</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Required</label>
+    <input class="form-control" type='checkbox' ng-model="goal.required">
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok(goal)">OK</button>
+  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>  
+</div>

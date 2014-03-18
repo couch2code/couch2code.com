@@ -1,9 +1,26 @@
 <div class="container">
-  <h2>Challenges</h2>
-  <div class="media">
-    <img src="http://placehold.it/64" />
-    <div class="media-heading">
-      <h4>Name of Challenge</h4>
+  <div class="col-lg-4">
+    <img src="http://placehold.it/400/300" />
+  </div>
+  <div class="col-lg-5 col-lg-offset-1">
+    <div class="pull-right">
+      <a ui-sref="challenges.new" class="btn btn-default" ng-show="loginObj.user">New Challenge</a>
     </div>
+    <h2>Challenges</h2>
+    <ul class="list-group">
+      <li class="list-group-item" ng-repeat="challenge in challenges">
+        <a class="media" ui-sref="challenges.show({id: challenge.$id})">
+          <div class="pull-left">
+            <img class="media-object" ng-src="{{challenge.user.avatar_url}}" />
+          </div>
+          <div class="media-body">
+            <div class="pull-right">{{challenge.created | date }}</div>
+            <h4 class="media-heading">{{challenge.title}}</h4>
+            {{challenge.description}}
+          </div>
+        </a>
+        <div class="clearfix"></div>
+      </li>
+    </ul>
   </div>
 </div>

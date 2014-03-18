@@ -2,7 +2,8 @@
 <html ng-app='couch2code'>
   <head>
     <title>Couch2Code</title>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="http://codemirror.net/lib/codemirror.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <body>
     <header class="jumbotron">
@@ -13,7 +14,9 @@
       </div>    
     </header>
     <div ui-view></div>
-    <script src='https://login.persona.org/include.js'></script>
-    <script src="bundle.js"></script>
+    <script src='//login.persona.org/include.js'></script>
+    <script src="http://codemirror.net/lib/codemirror.js"></script>
+    <script src="http://codemirror.net/mode/markdown/markdown.js"></script>
+    <script src="/bundle.js"></script>
   </body>
 </html>
