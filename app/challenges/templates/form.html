@@ -10,7 +10,7 @@
       </div>
       <div class="form-group">
         <label>Background / Description</label>
-        <textarea 
+        <textarea rows="8"
           class="form-control" 
           ng-model="challenge.description"></textarea>
       </div>
@@ -37,7 +37,8 @@
         <label>Publish</label>
       </div>
       <div class="form-group">
-        <button class="btn btn-default pull-right">Save</button>
+        <button class="btn btn-primary pull-right">Save</button>
+        <a class="btn btn-warning" ui-sref="challenges.list">Cancel</a>
       </div>
     </form>
   </div>

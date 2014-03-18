@@ -5,6 +5,7 @@ module.exports = function($scope, $state, $modal, challenges) {
   $scope.challenges = challenges;
   $scope.mode = 'New';
   $scope.challenge = { goals: [] };
+  $scope.challenge.description = 'Enter Challenge Description Here!';
 
   $scope.save = function(challenge) {
     challenge.user = $scope.loginObj.user;
