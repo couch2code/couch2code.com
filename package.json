@@ -23,6 +23,7 @@
     "simpleLogin": "firebase/firebase-simple-login"
   },
   "dependencies": {
-    "underscore": "~1.6.0"
+    "underscore": "~1.6.0",
+    "w3": "^0.4.2"
   }
 }
