@@ -4,8 +4,10 @@ require('firebase/firebase');
 require('angularfire/angularfire');
 require('simpleLogin/firebase-simple-login');
 require('modal');
+require('codemirror/ui-codemirror');
 
 angular.module('couch2code', ['ui.router','firebase', 'ui.bootstrap',
+  'ui.codemirror',
   require('./challenges').name
   // ,
   // require('./submissions').name,

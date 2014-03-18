@@ -1,8 +1,8 @@
 module.exports = function($scope, $modalInstance) {
-  $scope.ok = function() {
-    $modalInstance.close();
+  $scope.ok = function(goal) {
+    $modalInstance.close(goal);
   };
   $scope.cancel = function() {
-    $modalInstance.close();
+    $modalInstance.dismiss('cancel');
   };
 };

@@ -10,7 +10,9 @@
       </div>
       <div class="form-group">
         <label>Background / Description</label>
-        <textarea rows=8 class="form-control" ng-model="challenge.description"></textarea>
+        <textarea 
+          class="form-control" 
+          ng-model="challenge.description"></textarea>
       </div>
       <div class="form-group">
         <button type="button" class="pull-right btn btn-warning" ng-click="addGoal()">Add Goal</button>
@@ -20,17 +22,22 @@
             <th>Type</th>
             <th>Description</th>
             <th>Required?</th>
+            <th>Remove</th>
           </tr>
           <tr ng-repeat="goal in challenge.goals">
             <td><span class="label label-default">{{goal.type}}</span></td>
             <td>{{goal.description}}</td>
-            <td>{{goal.requried}}</td>
+            <td>{{goal.required}}</td>
+            <td><button type="button" ng-click="removeGoal(goal)">x</button></td>
           </tr>
         </table>
       </div>
       <div class="form-group">
-        <button class="btn btn-default">Save As Draft</button>
-        <button class="btn btn-default pull-right">Publish</button>
+        <input type="checkbox" ng-model="challenge.publish">
+        <label>Publish</label>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-default pull-right">Save</button>
       </div>
     </form>
   </div>

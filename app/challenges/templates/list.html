@@ -11,7 +11,7 @@
       <li class="list-group-item" ng-repeat="challenge in challenges">
         <a class="media" ui-sref="challenges.show({id: challenge.$id})">
           <div class="pull-left">
-            <img class="media-object" ng-src="{{challenge.avatar}}" />
+            <img class="media-object" ng-src="{{challenge.user.avatar_url}}" />
           </div>
           <div class="media-body">
             <div class="pull-right">{{challenge.created | date }}</div>
