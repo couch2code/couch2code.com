@@ -43,17 +43,7 @@ module.exports = angular.module('challenges', [])
     .state('challenges.edit', {
       url: '/:id/edit',
       controller: require('./controllers/edit.js'),
-      template: fs.readFileSync(__dirname + '/templates/form.html'),
-      resolve: {
-        challenge: function(fireUrl, $firebase, $stateParams) {
-          return $firebase(
-            new Firebase(
-              path.join(fireUrl, 'challenges', $stateParams.id)
-            )
-          );
-        }
-      }
-
+      template: fs.readFileSync(__dirname + '/templates/form.html')
     })
     .state('challenges.show', {
       url: '/:id',
@@ -63,7 +53,7 @@ module.exports = angular.module('challenges', [])
         challenge: function(fireUrl, $firebase, $stateParams) {
           return $firebase(
             new Firebase(
-              path.join(fireUrl, 'challenges', $stateParams.id)
+              [fireUrl, 'challenges', $stateParams.id].join('/')
             )
           );
         }

@@ -1,1 +1,38 @@
-<h1>Show Challenge</h1>
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="list-group whitebkg">
+      <div class="list-group-item">
+        <div class="pull-right">
+          <a class="btn btn-default" ui-sref="challenges.list">Return</a>
+        </div>
+        <h1>{{challenge.title}}</h1>
+      </div>
+      <div class="list-group-item">
+        {{challenge.description}}
+      </div>
+      <div class="list-group-item">
+        <h3>Goals</h3>
+      </div>
+      <div class="list-group-item" ng-repeat="goal in challenge.goals">
+        <div class="pull-right">
+          <span class="label label-default">{{goal.type}}</span>
+          <span class="label label-danger" ng-show="goal.required">Required</span>
+        </div>
+        {{goal.description}}  
+      </div>
+      <div class="list-group-item">
+        <div class="pull-right">
+          <span style="font-size: 3em;" class="label label-primary">20</span>
+        </div>
+        <h3>Submissions</h3>
+      </div>
+      <a class="list-group-item btn btn-primary" ui-sref="submits.new({challenge.$id})">Submit your code!
+      </a>
+      <div class="list-group-item" ng-repeat="submit in challenge.submits">
+        Placeholder for submits.
+      </div>
+    </div>
+
+
+  </div>
+</div>

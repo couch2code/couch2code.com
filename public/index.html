@@ -3,20 +3,44 @@
   <head>
     <title>Couch2Code</title>
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="http://codemirror.net/lib/codemirror.css"/>
+    <link rel="stylesheet" href="/app.css">
     <meta name="viewport" content="width=device-width, initial-scale=1">
   <body>
-    <header class="jumbotron">
-      <div class="container">
-        <button class="btn btn-warning pull-right" ng-show="loginObj.user" ng-click="loginObj.$logout()">Logout</button>
-        <h1>Couch2Code</h1>
-        <p>To get better at programming you must get off the couch and start writing code! Don't know where to start, we are here to help!</p>
-      </div>    
-    </header>
-    <div ui-view></div>
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Couch2Code</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="/challenges">Challenges</a></li>
+            <li><a href="#">My Work</a></li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a class="btn btn-warning pull-right" ng-show="loginObj.user" ng-click="loginObj.$logout()">Logout</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>  
+    <div class="greybkg" ui-view></div>
     <script src='//login.persona.org/include.js'></script>
-    <script src="http://codemirror.net/lib/codemirror.js"></script>
-    <script src="http://codemirror.net/mode/markdown/markdown.js"></script>
+    <script src="/js/epiceditor.js"></script>
+    <script src="/bower_components/jquery/jquery.js"></script>
     <script src="/bundle.js"></script>
   </body>
 </html>

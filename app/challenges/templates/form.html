@@ -1,7 +1,5 @@
 <div class="container">
-  <div class="col-lg-4">
-  </div>
-  <div class="col-lg-5 col-lg-offset-1">
+  <div class="col-md-8 col-md-offset-1 whitebkg">
     <h2>{{mode}} Challenge</h2>
     <form name="form" novalidate ng-submit="save(challenge)">
       <div class="form-group">
@@ -10,9 +8,7 @@
       </div>
       <div class="form-group">
         <label>Background / Description</label>
-        <textarea rows="8"
-          class="form-control" 
-          ng-model="challenge.description"></textarea>
+        <div id="epiceditor"></div>
       </div>
       <div class="form-group">
         <button type="button" class="pull-right btn btn-warning" ng-click="addGoal()">Add Goal</button>

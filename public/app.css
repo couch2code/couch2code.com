@@ -1,0 +1,11 @@
+.greybkg {
+  padding-top: 20px;
+  color: #fff;
+  background: #000 url('/img/greybkg.jpg') center no-repeat;
+}
+
+.whitebkg {
+  border-radius: 4px;
+  background: whitesmoke;
+  color: rgba(0,0,0,.8);
+}

@@ -1,4 +1,0 @@
----
-applications:
-  - name: couch2code
-    command: w3 --directory public --pushstate
